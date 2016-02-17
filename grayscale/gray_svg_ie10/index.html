@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css3Effect</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+        <p>IE10 with inline SVG</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="313">
+  <defs>
+     <filter id="filtersPicture">
+       <feComposite in="SourceGraphic" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0" />
+       <feColorMatrix type="saturate" values="0" data-filterid="38" />
+    </filter>
+  </defs>
+  <image filter="url(#filtersPicture)" x="0" y="0" width="500" height="313" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/ali.jpg" />
+   </svg>
+	</div>
+
+</body>
+</html>
