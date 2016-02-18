@@ -1,0 +1,14 @@
+.blur{
+	-webkit-filter: blur(2px);
+     filter: blur(2px);
+     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+}
+.blur:hover{
+	-webkit-filter: blur(0px);
+     filter: blur(0px);
+     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+}
+
+img:hover{
+	transition: all 200ms ease-in-out;/*not supported by ie9*/
+}
