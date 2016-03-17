@@ -1,0 +1,91 @@
+html, body{
+width: 100%;
+min-width: 600px;
+height: 100%;
+-webkit-text-stroke: 0.Xpx;
+line-height: 1.4 ;
+font-family: 'Montserrat', sans-serif;
+
+
+   background-image: url("https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=9c5eacd53f0e3c7484d78969561a23ca");
+    background-size: cover;
+      background-position: center;
+
+}
+body *{
+   transition: all 0.5s ease;
+}
+section{ padding: 20px;  }
+
+
+#first{
+  
+ padding: 100px 20px;
+   
+} 
+
+.taskwrapper{
+
+  max-width: 800px;
+  min-height: 500px;
+  background-color: #f2f3f7;
+  margin: 0px auto;
+  border-radius: 15px;
+  
+  box-shadow: 0px 0px 15px rgba(33, 33, 33, 0.7);
+}
+.taskwrapper .task{
+  min-height: 40px;
+  padding: 10px;
+     border-bottom: 1px solid #E0E0E0;
+    width: 98%;
+    margin: 0px auto;
+    background-color: #F2F3F7;
+}
+.taskwrapper .task:hover{
+      transform: scale(1.1);
+    margin: 3px 0px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(121, 121, 121, 0.53);
+    cursor: pointer;
+}
+ 
+ .task .tasktext {
+    font-size: 26px;
+    word-wrap: break-word;
+    color: #c9cacf;
+    padding-left: 60px;
+}
+.taskwrapper .header{
+  min-height: 100px;
+  padding: 12px;
+  background-image: linear-gradient(rgba(43, 43, 43, 0.6), rgba(160, 92, 7, 0.6)), url("https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=fc0104dcd202c87d8c82586d5d83ce0c");
+    background-size: cover;
+    background-position: center, 0px -120px;
+}
+.taskwrapper .filters{
+  padding: 10px 30px;
+  background-color: #f2c04d;
+  color: #b18323;
+  width: 100%;
+  height: 40px;
+} 
+.whitetask {color:#fff; 
+    font-weight: 100;
+    font-family: cursive;
+
+    font-size: 12px;}
+.whitetask span{ color: #DA0D0D; font-weight: bold}
+
+.filters ul{
+    display: inline-block;
+    list-style-type: none;
+
+    margin-left: -20px;
+
+}
+.filters ul li{
+  display: inline-block;
+  margin: 0px 8px;
+}
+.filters ul li:hover{ color: #fff;}
