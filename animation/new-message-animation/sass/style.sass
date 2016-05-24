@@ -1,0 +1,163 @@
+// PLaceholders
+
+%triarrow_border
+	position: relative
+	&:after,&:before
+		border: solid transparent
+		content: " "
+		height: 0
+		width: 0
+		position: absolute
+		pointer-events: none
+		z-index: 99
+
+=triarrow_border($topbottom:'top',$leftright:'50%',$size:20,$color:'white',$border-width:'none',$border-color:'none')
+	@extend %triarrow_border
+	&:after
+		@if $topbottom == 'top'
+			bottom: 100%
+			left: #{$leftright}
+			border-bottom-color: #{$color}
+		@else if $topbottom == 'bottom'
+			top: 100%
+			left: #{$leftright}
+			border-top-color: #{$color}
+		@else
+			top: #{$topbottom}
+		@if $leftright == 'left'
+			right: 100%
+			border-right-color: #{$color}
+		@else if $leftright == 'right'
+			left: 100%
+			border-left-color: #{$color}
+		@else
+			left: #{$leftright}
+		border-width: #{$size}px
+		margin-top: -#{$size}px
+		@if $topbottom == 'bottom'
+			margin-top: 0
+	@if $border-width != 'none'
+		&:before
+			border-width: #{($size + round($border-width*1.41421356))}px
+			@if $topbottom == 'bottom'
+				border-top-color: #{$border-color}
+				left: #{$leftright}
+				bottom: -#{($size + round($border-width*1.41421356))*2}px
+				margin-left: -#{round($border-width*1.41421356)}px
+			@if $topbottom == 'top'
+				border-bottom-color: #{$border-color}
+				top: -#{($size + round($border-width*1.41421356))*2}px
+				left: #{($leftright)}
+				margin-left: -#{round($border-width*1.41421356)}px
+			@if $leftright == 'left'
+				border-right-color: $border-color
+				left: -#{($size + round($border-width*1.41421356))*2}px
+				top: #{($topbottom)}
+				margin-top: -#{round($border-width*1.41421356 + $size)}px
+			@if $leftright == 'right'
+				border-left-color: $border-color
+				right: -#{($size + round($border-width*1.41421356))*2}px
+				top: #{($topbottom)}
+				margin-top: -#{round($border-width*1.41421356 + $size)}px
+
+*,
+*:before,
+*:after
+	box-sizing: border-box
+
+html
+	height: 100%
+body
+	background-color: #00b9d6
+	display: flex
+	align-items: center
+	min-height: 100%
+	justify-content: center
+	background: radial-gradient(#74c6d3, #00b9d6)
+.bocata
+	background-color: #ffffff
+	width: 100px
+	padding: 1em 1.5em
+	position: relative
+	border: 4px solid #008fa5
+	border-radius: 5px
+	+triarrow_border(bottom, 28%, 10, #fff, 4, #008fa5)
+	
+	&.new_message		
+		transition: width cubic-bezier(.11,.92,.52,.98)
+		animation: collapsing .7s
+		.message_length
+			animation: zoom .6s .7s	
+		.text_wrapper .dots.dot_one
+			animation: blink 1s .6s infinite alternate
+		.text_wrapper .dots.dot_two
+			animation: blink 1s .75s infinite alternate
+		.text_wrapper .dots.dot_three 
+			animation: blink 1s .9s infinite alternate
+	
+		
+	.message_length
+		position: absolute
+		min-width: 18px
+		top: -15px
+		right: -18px
+		text-align: center
+		zoom: 100%
+		background-color: #008fa5		
+		color: white
+		border-radius: 10px
+		padding: .5em
+		
+	.text_wrapper
+		text-align: center
+		.dots_wrapper
+			float: left
+			width: 33%
+			text-align: center
+		.dots
+			width: 5px
+			height: 5px
+			line-height: 0		
+			border-radius: 50%
+			display: inline-block			
+			background-color: black		
+		
+	.shadow
+		content: ""
+		height: 2px
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		width: 100%
+		box-shadow: 0 25px 20px 0px #008fa5
+	
+@keyframes collapsing
+	0%
+		width: 100px
+	20%
+		width: 80px
+	70%
+		width: 75px
+	75%
+		width: 110px
+	90%
+		width: 90px	
+	100%
+		width: 100px
+
+
+@keyframes blink
+	0%
+		opacity: 1
+	100%
+		opacity: 0
+
+@keyframes zoom
+	0%
+		transform: scale(1)
+	50%
+		transform: scale(1.15)
+	100%
+		transform: scale(1)
+
